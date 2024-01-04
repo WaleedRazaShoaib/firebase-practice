@@ -4,5 +4,3 @@ var signuppassword = document.getElementById("signup-password");
 var signupparent = document.getElementById("signup-parent")
 var loginparent = document.getElementById("login-parent");
 console.log(loginparent)
-console.log(loginparent)
-console.log(loginparent)
