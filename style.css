@@ -52,8 +52,8 @@ p {
 #signup-userName,
 #signup-email,
 #signup-password {
-    padding: 3px;
-    border-radius: 1px;
+    padding: 5px;
+    border-radius: 10px;
     height: 40px;
     width: 250px;
 }
@@ -61,7 +61,7 @@ p {
 #login-userName,
 #login-email,
 #login-password {
-    padding: 3px;
+    padding: 5px;
     border-radius: 1px;
     height: 40px;
     width: 250px;
