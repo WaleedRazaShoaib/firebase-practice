@@ -62,7 +62,7 @@ p {
 #login-email,
 #login-password {
     padding: 5px;
-    border-radius: 1px;
+    border-radius: 5px;
     height: 40px;
     width: 250px;
 }
@@ -76,7 +76,7 @@ p {
     font-size: larger;
     background-color: blue;
     height: 35px;
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 3px;
     width: 300px;
 }

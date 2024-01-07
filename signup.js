@@ -1,48 +1,52 @@
+import {
+    auth,
+    createUserWithEmailAndPassword,
+} from "./firebase.js"
+
+
 let signupuserName = document.getElementById("signup-userName");
 let signupemail = document.getElementById("signup-email");
 let signuppassword = document.getElementById("signup-password");
 let signin = document.getElementById("signin")
- 
-let signupdata =  () => {
-        if (signupuserName.value.trim() === "") {
-            Swal.fire({
-                icon: "error",
-                title: "Plzz write the username ",
-            });
-        }
-        else {
-           console.log("user ", signupuserName.value)
-        }
-        if (signupemail.value.trim() === "") {
-            Swal.fire({
-                icon: "error",
-                title: "Plzz write the email ",
-            });
-        }
-        else {
-            console.log("user ", signupemail.value)
-        }
-    
-        if (signuppassword.value.trim() === "") {
-            Swal.fire({
-                icon: "error",
-                title: "Plzz write the password ",
-            });
-        }
-        else {
-            console.log("user ", signuppassword.value)
-        }
 
-        
-        
-        
-        // if (signupuserName.value && signupemail.value && signuppassword.value) {
-            
-            //     Swal.fire({
-        //         icon: "success",
-        //         title: "Your Sign up has been saved",
-        //     });
-        // }
+let signupdata = () => {
+    if (signupuserName.value.trim() === "") {
+        Swal.fire({
+            icon: "error",
+            title: "Plzz write the username ",
+        });
+    } else if (signupemail.value.trim() === "") {
+        Swal.fire({
+            icon: "error",
+            title: "Plzz write the email ",
+        });
+    } else if (signuppassword.value.trim() === "") {
+        Swal.fire({
+            icon: "error",
+            title: "Plzz write the password ",
+        });
     }
-    
-    signin.addEventListener("click",signupdata)
+    else {
+
+        createUserWithEmailAndPassword(auth, signupemail.value, signuppassword.value)
+            .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
+                console.log("user --->", user)
+                Swal.fire({
+                    icon: "success",
+                    title: "Your sig in has been saved",
+                  });
+                  location.href = "login.html"
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+       
+        
+    }
+
+}
+
+signin.addEventListener("click", signupdata)

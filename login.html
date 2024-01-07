@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
     <div class="all" id="login-parent">
         <div class="parent">
-            <h1>Welcome to LOG IN  </h1>
+            <h1>Welcome to LOG IN </h1>
             <div class="name">
                 <p> UserName</p>
                 <input type="text" placeholder="UserName" id="login-userName">
@@ -24,11 +26,17 @@
                 <input type="password" placeholder="Password" id="login-password">
             </div>
             <div class="btn2">
-                <button class="btn1" onclick="logindatasave()">Log In</button>
+                <button class="btn1" id="loggin">Log In</button>
             </div>
         </div>
     </div>
 
 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="login.js" type="module"></script>
+    <script src="app.js" type="module"></script>
 </body>
+
 </html>

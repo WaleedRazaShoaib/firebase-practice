@@ -1,11 +1,8 @@
-
-
-// const analytics = getAnalytics(app);
-// import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 
-import{getAuth,
-    
+import{
+    getAuth,
+    createUserWithEmailAndPassword,
 
 } from
 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js'
@@ -25,7 +22,16 @@ const firebaseConfig = {
     measurementId: "G-99CV4C9N41"
 };
 
-// Initialize Firebase
-const auth = getAuth(app);
-const app = initializeApp(firebaseConfig);
 
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+
+
+
+
+export{
+auth,
+createUserWithEmailAndPassword,
+}
