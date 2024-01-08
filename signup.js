@@ -49,4 +49,4 @@ let signupdata = () => {
 
 }
 
-signin.addEventListener("click", signupdata)
+ signin && signin.addEventListener("click", signupdata)

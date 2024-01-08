@@ -1,0 +1,57 @@
+/* ================================================================== */
+/* ====================Work of Blog app ==================== */
+/* ================================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #9FB6C3;
+}
+
+.navlogo {
+    width: 130px;
+    height: 60px;
+}
+
+.blogworkbody {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #9FB6C3;
+}
+
+
+.btn {
+    background-color: rgb(237, 32, 32) !important;
+    color: black;
+}
+
+.navbar {
+    height: 70px !important;
+    background-color: #008CBA !important;
+}
+
+.blog {
+    padding-top: 10px;
+    margin-top: 20px;
+    padding: 5px;
+    padding-bottom: 15px;
+}
+
+.post {
+    background-color: #008CBA;
+    height: 40px;
+    margin-left: 10%;
+    border-radius:10px ;
+    width: 80%;
+}
+
+#editor {
+    padding-top: 10px;
+}
+
+.card-text{
+    margin-left: 10px;
+}
