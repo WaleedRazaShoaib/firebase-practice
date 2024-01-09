@@ -1,5 +1,4 @@
 import {
-    getFirestore,
     collection,
     addDoc,
     db,
@@ -38,19 +37,9 @@ var quill = new Quill("#editor", {
     },
 });
 
-const addquill = () => {
 
-    try {
-        const docRef = addDoc(collection(db, "blogs"), {
-            blog: quill.innerHTML
-        });
-        // console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-        console.error("Error adding document: ", e);
-    }
-}
 
-addquill()
+
 // AND IF CONDITION IS NOT RUNING ELSE CONDITION RUN
 // else {
 //     Swal.fire({
@@ -60,11 +49,11 @@ addquill()
 //     });
 // }
 
-
+var postcontent = "";
 
 const Blogwork = () => {
-    var postcontent = quill.root;
 
+    var postcontent = quill.root;
     main.innerHTML =
         `
         <div class="col " style = "margin-top:3%; ;">
@@ -76,23 +65,32 @@ const Blogwork = () => {
     console.log(postcontent.innerText)
 
     if (postcontent.innerText.trim() !== "") {
+        const addquill = async () => {
+            try {
+                const docRef = await addDoc(collection(db, "Blogs"), {
+                    blog: postcontent.innerHTML
+                });
+                console.log("Document written with ID: ", docRef.id);
+            } catch (e) {
+                console.error("Error adding document: ", e);
+            }
+        }
         Swal.fire({
             icon: "success",
             title: "Your post has been saved",
         });
-        main.style.display = "block";
 
+        addquill()
     }
     else {
         Swal.fire({
             icon: "error",
             title: "Create the post",
         });
-        main.style.display = "none";
-
     }
+
+
 
     quill.root.innerHTML = "";
 }
-
 quillPost.addEventListener("click", Blogwork)
