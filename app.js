@@ -20,7 +20,7 @@ onAuthStateChanged(auth, (user) => {
 let logoutbtn = document.getElementById("logoutbtn");
 const logOut = () =>{
     signOut(auth).then(() => {
-  location.href = "/login.html"
+//   location.href = "/login.html"
 }).catch((error) => {
   // An error happened.
 });

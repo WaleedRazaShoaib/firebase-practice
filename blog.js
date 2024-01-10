@@ -49,7 +49,6 @@ var quill = new Quill("#editor", {
 //     });
 // }
 
-var postcontent = "";
 
 const Blogwork = () => {
 
@@ -68,7 +67,7 @@ const Blogwork = () => {
         const addquill = async () => {
             try {
                 const docRef = await addDoc(collection(db, "Blogs"), {
-                    blog: postcontent.innerHTML
+                    blog: postcontent.innerText
                 });
                 console.log("Document written with ID: ", docRef.id);
             } catch (e) {

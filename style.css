@@ -24,10 +24,9 @@ body {
 
 .parent {
     margin-top: auto;
-    /* text-align: center;  */
     background-color: gainsboro;
     padding: 30px 20px 10px 20px;
-    height: 400px;
+    height: 420px;
     width: 350px;
     border-radius: 20px;
 }
