@@ -62,6 +62,7 @@ const Blogwork = () => {
         </div>
     </div>` + main.innerHTML;
     console.log(postcontent.innerText)
+    console.log(postcontent.innerText)
 
     if (postcontent.innerText.trim() !== "") {
         const addquill = async () => {
