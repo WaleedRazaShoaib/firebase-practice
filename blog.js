@@ -88,8 +88,7 @@ const Blogwork = () => {
             title: "Create the post",
         });
     }
-
-
+console.log(quill)
 
     quill.root.innerHTML = "";
 }
