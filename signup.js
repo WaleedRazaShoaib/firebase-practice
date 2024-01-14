@@ -35,7 +35,7 @@ let signupdata = () => {
                 console.log("user --->", user)
                 Swal.fire({
                     icon: "success",
-                    title: "Your sig in has been saved",
+                    title: "Your sign in has been saved",
                   });
                   location.href = "login.html"
             })

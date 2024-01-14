@@ -7,7 +7,7 @@ import {
     onAuthStateChanged,
     signOut,
 } from
-    'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js'
+'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js'
 
 
 
@@ -15,6 +15,7 @@ import {
     getFirestore,
     collection,
     addDoc,
+    onSnapshot
 
 }from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
@@ -50,4 +51,5 @@ export {
     collection,
     addDoc,
     db,
+    onSnapshot
 }

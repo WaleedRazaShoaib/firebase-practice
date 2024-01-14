@@ -2,94 +2,54 @@ import {
     collection,
     addDoc,
     db,
-
+    onSnapshot
 } from "./firebase.js"
 
-let editor = document.getElementById("editor")
-let main = document.getElementById("main");
-let quillPost = document.getElementById("quillPost");
+// References to HTML elements
+const blogPostsContainer = document.getElementById('blogPosts');
+const blogForm = document.getElementById('blogForm');
+const blogTitleInput = document.getElementById('blogTitle');
+const blogContentInput = document.getElementById('blogContent');
+const contentButton = document.getElementById('button');
 
 
-var toolbarOptions = [
-    ["bold", "italic", "underline", "strike"],
-    ["blockquote", "code-block"],
+const uploadPost = () => {
 
-    [{ header: 1 }, { header: 2 }],
-    [{ list: "ordered" }, { list: "bullet" }],
-    [{ script: "sub" }, { script: "super" }],
-    [{ indent: "-1" }, { indent: "+1" }],
-    [{ direction: "rtl" }],
-    [{ size: ["small", false, "large", "huge"] }],
-    [{ header: [1, 2, 3, 4, 5, 6, false] }],
-
-    [{ color: [] }, { background: [] }],
-    [{ font: [] }],
-    [{ align: [] }],
-
-    ["clean"],
-];
-
-var quill = new Quill("#editor", {
-    theme: "snow",
-    placeholder: "Write Blog...",
-    modules: {
-        toolbar: toolbarOptions,
-    },
-});
-
-
-
-
-// AND IF CONDITION IS NOT RUNING ELSE CONDITION RUN
-// else {
-//     Swal.fire({
-//         icon: "error",
-//         title: "First You Add The Todo",
-//         text: "Add First todo",
-//     });
-// }
-
-
-const Blogwork = () => {
-
-    var postcontent = quill.root;
-    main.innerHTML =
-        `
-        <div class="col " style = "margin-top:3%; ;">
-    <div class="card h-100" style = "background-color:  #008CBA;">
-             <h5 class="card-title" style = "padding-top: 10px; padding-left: 10px">YOUR POST</h5>
-            <p class="card-text">${postcontent.innerHTML}</p>
-        </div>
-    </div>` + main.innerHTML;
-    console.log(postcontent.innerText)
-    
-
-    if (postcontent.innerText.trim() !== "") {
-        const addquill = async () => {
-            try {
-                const docRef = await addDoc(collection(db, "Blogs"), {
-                    blog: postcontent.innerText
-                });
-                console.log("Document written with ID: ", docRef.id);
-            } catch (e) {
-                console.error("Error adding document: ", e);
-            }
-        }
-        Swal.fire({
-            icon: "success",
-            title: "Your post has been saved",
+    if (blogTitleInput.value && blogContentInput.value !== "") {
+        blogPostsContainer.innerHTML += `
+        <div class="card">
+  <div class="card-header">
+    Your Post
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">${blogTitleInput.value}</h5>
+    <p class="card-text">${blogContentInput.value}</p>
+  </div>
+</div>`
+try 
+{
+        const docRef = addDoc(collection(db, "posts"), {
+            postTitle: blogTitleInput.value,
+            post: blogContentInput.value,
         });
 
-        addquill()
-    }
+        console.log("Document written with ID: ", docRef.id);
+
+
+    } catch (e) {
+        console.error("Error adding document: ", e);
+    }}
+
     else {
         Swal.fire({
             icon: "error",
-            title: "Create the post",
+            title: "Plzz write the password ",
         });
     }
-console.log(quill)
+    blogPostsContainer.style = "none";
 
-    quill.root.innerHTML = "";
-}
-quillPost.addEventListener("click", Blogwork)
+  
+}  
+
+
+contentButton.addEventListener("click", uploadPost)

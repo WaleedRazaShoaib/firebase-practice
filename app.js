@@ -1,7 +1,7 @@
 import { auth, onAuthStateChanged, signOut, } from "./firebase.js"
 
-
-onAuthStateChanged(auth, (user) => {
+const blogPostsContainer = document.getElementById('blogPosts');
+onAuthStateChanged (auth, (user) => {
     if (user) {
         console.log("user ", user)
         if (location.pathname !== "/blog.html") {
@@ -12,10 +12,11 @@ onAuthStateChanged(auth, (user) => {
     } else {
         if(location.pathname !== "/index.html"){
             window.location.href = "/index.html";
-           }
-
-     }
-});
+            blogPostsContainer.innerHTML = '<p>Login to view blog posts.</p>'
+        }
+    }
+}
+);
 
 let logoutbtn = document.getElementById("logoutbtn");
 const logOut = () =>{

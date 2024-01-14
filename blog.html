@@ -11,7 +11,6 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="blog.css">
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
 </head>
 
@@ -25,27 +24,22 @@
     </nav>
 
 
-    <div class="blog">
-        <div id="editor">
-        </div>
+
+    <div id="blogForm">
+        <label for="blogTitle">Title:</label>
+        <input type="text" id="blogTitle" required>
+        <label for="blogContent">Content:</label>
+        <textarea id="blogContent" required></textarea>
+        <button type="submit" id="button">Create Post</button>
     </div>
-    <button id="quillPost" class="post">POST</button>
-
-
-
-    <div id="main" style="width: 80%; margin-left:10%; "></div>
-
+    
+    <div id="blogPosts" style="display: none;"></div>
 
 
 
 
 
 
-
-
-
-
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="blog.js"></script>
     <script src="app.js" type = "module"></script>
