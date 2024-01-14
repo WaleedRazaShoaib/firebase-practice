@@ -7,7 +7,7 @@ import {
     onAuthStateChanged,
     signOut,
 } from
-'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js'
+    'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js'
 
 
 
@@ -15,21 +15,24 @@ import {
     getFirestore,
     collection,
     addDoc,
-    onSnapshot
+    onSnapshot,
+    getDocs
 
-}from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+} from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
 
 
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
-    apiKey: "AIzaSyDMSdxBjOMIDIrfszdCq0RIZvWwnGjYcXE",
-    authDomain: "practice-batch-10.firebaseapp.com",
-    projectId: "practice-batch-10",
-    storageBucket: "practice-batch-10.appspot.com",
-    messagingSenderId: "219938660505",
-    appId: "1:219938660505:web:7b3dbbe4bb433e89431808",
-    measurementId: "G-99CV4C9N41"
+    apiKey: "AIzaSyDdaZwiKad6jgeksVXiBo-KSFxnkIFKfpk",
+    authDomain: "postapp-f222e.firebaseapp.com",
+    projectId: "postapp-f222e",
+    storageBucket: "postapp-f222e.appspot.com",
+    messagingSenderId: "623738442618",
+    appId: "1:623738442618:web:d16e4890d74ee9928fbcc3",
+    measurementId: "G-NPZFTMY6YC"
 };
 
 
@@ -51,5 +54,6 @@ export {
     collection,
     addDoc,
     db,
-    onSnapshot
+    onSnapshot,
+    getDocs
 }
