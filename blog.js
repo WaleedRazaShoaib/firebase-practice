@@ -4,6 +4,7 @@ import {
     db,
     onSnapshot,
     getDocs,
+    deleteDoc,
 } from "./firebase.js"
 
 // References to HTML elements
@@ -16,7 +17,6 @@ const contentButton = document.getElementById('button');
 const getdata = async () => {
     try {
         const querySnapshot = await getDocs(collection(db, "posts"));
-
         querySnapshot.forEach((doc) => {
             blogPostsContainer.innerHTML += `
                 <div class="card" style="margin-top:20px;">
@@ -26,10 +26,11 @@ const getdata = async () => {
                     <div class="card-body">
                         <h5 class="card-title">${doc.data().postTitle}</h5>
                         <p class="card-text">${doc.data().post}</p>
-                        <button type="button" class="btn btn-outline-primary">delete</button>
+                        <button type="button" class="btn btn-outline-primary" onClick="deletePost(${doc.id})">delete</button>
                         <button class="editbtn btn-outline-primary">edit</button>
                     </div>
-                </div>`;
+                </div>
+                `;
 
             console.log(`${doc.id} => ${doc.data().post}`);
         });
@@ -38,27 +39,11 @@ const getdata = async () => {
     }
 };
 
-// Assuming blogPostsContainer is defined somewhere in your code
-// For example: const blogPostsContainer = document.getElementById('blog-posts-container');
-
-
 getdata()
 
 const uploadPost = () => {
 
     if (blogTitleInput.value && blogContentInput.value !== "") {
-        //         blogPostsContainer.innerHTML += `
-        //         <div class="card" style="margin-top:20px;">
-        //   <div class="card-header">
-        //     Your Post
-        //   </div>
-        //   <div class="card-body">
-        //   <h5 class="card-title">${blogTitleInput.value}</h5>
-        //   <p class="card-text">${blogContentInput.value}</p>
-        //   <button type="button" class="btn btn-outline-primary">delete</button>
-        //   <button class="editbtn" class="btn-outline-primary">edit</button>
-        //   </div>
-        //   </div>`
         blogPostsContainer.style = "none";
         try {
             const docRef = addDoc(collection(db, "posts"), {
@@ -84,5 +69,20 @@ const uploadPost = () => {
 
 }
 
-
 contentButton.addEventListener("click", uploadPost)
+const deletePost = async (docID) => {
+    try {
+        await deleteDoc(doc(db, "posts", docID));
+        console.log("Document successfully deleted!");
+        // You may want to refresh the UI or re-fetch data after deletion.
+    } catch (error) {
+        console.error("Error deleting document: ", error);
+    }
+};
+deletePost()
+
+
+// const editPost = (postId) => {
+//     console.log(`Edit post with ID: ${postId}`);
+//     // Add your edit logic here
+// };
