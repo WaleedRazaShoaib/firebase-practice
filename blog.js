@@ -82,7 +82,3 @@ const deletePost = async () => {
 
 
 
-// const editPost = (postId) => {
-//     console.log(`Edit post with ID: ${postId}`);
-//     // Add your edit logic here
-// };
