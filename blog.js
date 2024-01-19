@@ -26,7 +26,7 @@ const getdata = async () => {
                     <div class="card-body">
                         <h5 class="card-title">${doc.data().postTitle}</h5>
                         <p class="card-text">${doc.data().post}</p>
-                        <button type="button" class="btn btn-outline-primary" onClick="deletePost()">delete</button>
+                        <button type="button" class="btn btn-outline-primary" >delete</button>
                         <button class="editbtn btn-outline-primary">edit</button>
                     </div>
                 </div>
@@ -70,15 +70,6 @@ const uploadPost = () => {
 }
 
 contentButton.addEventListener("click", uploadPost)
-const deletePost = async () => {
-    try {
-        await deleteDoc(doc(db, "posts"));
-        console.log("Document successfully deleted!");
-        // You may want to refresh the UI or re-fetch data after deletion.
-    } catch (error) {
-        console.error("Error deleting document: ", error);
-    }
-};
 
 
 
