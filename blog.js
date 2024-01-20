@@ -31,7 +31,6 @@ const getdata = async () => {
                     </div>
                 </div>
                 `;
-
             console.log(`${doc.id} => ${doc.data().post}`);
         });
     } catch (error) {
@@ -61,11 +60,6 @@ const uploadPost = () => {
             title: "Plzz write the title & post content ",
         });
     }
-
-
 }
 
-contentButton.addEventListener("click", uploadPost)
-
-
-
+contentButton.addEventListener("click", uploadPost);
