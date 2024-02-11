@@ -27,7 +27,6 @@ let signupdata = () => {
         });
     }
     else {
-
         createUserWithEmailAndPassword(auth, signupemail.value, signuppassword.value)
             .then((userCredential) => {
                 // Signed up 
