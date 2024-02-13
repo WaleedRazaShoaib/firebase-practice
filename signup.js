@@ -48,4 +48,5 @@ let signupdata = () => {
 
 }
 
- signin && signin.addEventListener("click", signupdata)
+ signin && signin.addEventListener("click", signupdata);
+ console.log(signin)
